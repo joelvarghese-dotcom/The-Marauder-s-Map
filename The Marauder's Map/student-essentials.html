@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>
+   The Marauder's Map | Student Essentials
+  </title>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&amp;family=Cormorant+Garamond:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+  <style>
+   :root{--ink:#1a100f;--panel:#261817;--panel2:#321e1c;--gold:#d6b46b;--gold2:#a77c3e;--cream:#f1e6cf;--muted:#cbbd9f;--red:#6f2930;--green:#82916c}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:22px}
+body{margin:0;background:var(--ink);color:var(--cream);font-family:"Cormorant Garamond",serif;font-size:19px;line-height:1.45}
+h1,h2,h3,.brand,.nav a,.btn{font-family:"Cinzel",serif}
+h1,h2,h3{color:var(--gold)}
+a{color:var(--gold)}
+.sidebar{position:fixed;inset:0 auto 0 0;width:248px;background:#100a09;border-right:2px solid var(--gold2);padding:22px 17px;overflow-y:auto;text-align:center;z-index:5}
+.crest{width:92px;height:92px;border:2px solid var(--gold);border-radius:50%;display:grid;place-items:center;margin:auto;background:radial-gradient(circle,#53302a,#160e0d);font-size:43px}
+.brand{font-size:19px;color:var(--gold);margin:13px 0 3px}
+.tagline{font-style:italic;color:var(--muted);font-size:17px;margin:0 0 22px}
+.nav{text-align:left;list-style:none;padding:0;margin:0}
+.nav li{margin:4px 0}
+.nav a{display:block;color:var(--cream);text-decoration:none;padding:8px 10px;border-radius:4px;font-size:13px;letter-spacing:.3px;transition:.2s}
+.nav a:hover{background:#492326;color:#f4d68c;padding-left:16px}
+.btn{border:1px solid var(--gold2);background:var(--gold);color:#1a100f;padding:10px 15px;border-radius:4px;cursor:pointer;font-size:12px;letter-spacing:.5px}
+.btn:hover{background:#eed18a}
+.sidebar .btn{width:100%;margin-top:17px}
+main{margin-left:248px;padding:42px 48px 0;max-width:1320px}
+.hero{min-height:390px;padding:60px 30px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;border:1px solid var(--gold2);border-radius:10px;background:linear-gradient(135deg,rgba(76,31,34,.94),rgba(24,14,13,.97)),url("https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=1600&q=80") center/cover}
+.hero .eyebrow{color:#e7cf9a;letter-spacing:3px;text-transform:uppercase;font-size:14px}
+.hero h1{font-size:clamp(32px,5vw,56px);margin:12px 0 5px;text-shadow:0 2px 12px #000}
+.hero p{max-width:760px;color:#eadfc9;font-size:23px;margin:8px auto 20px}
+.hero .motto{font-style:italic;color:var(--gold);font-size:19px}
+.section{padding:54px 0;scroll-margin-top:18px}
+.section-title{text-align:left;border-bottom:1px solid #795532;padding-bottom:16px;margin:0 0 30px;font-size:26px}
+.intro{text-align:left;max-width:820px;margin:0 0 30px;color:var(--muted);font-size:20px}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px}
+.card{background:var(--panel);border:1px solid #62452f;border-radius:7px;padding:26px 27px;transition:.2s}
+.card:hover{transform:translateY(-3px);border-color:var(--gold)}
+.card h3{font-size:19px;margin:0 0 12px}
+.card p{color:var(--muted);margin:8px 0;line-height:1.6}
+.icon{font-size:26px;margin-bottom:8px}
+.pill{display:inline-block;border:1px solid #8b7046;border-radius:3px;padding:3px 9px;font-size:13px;color:#e8d39f;margin:8px 6px 0 0}
+.verified{color:#b8d0a0}.check{color:#e5c77e}
+.notice{background:#302319;border-left:4px solid var(--gold);padding:18px 21px;color:#e5d7b9;border-radius:4px;margin:28px 0;max-width:950px}
+.searchbar{display:flex;gap:10px;flex-wrap:wrap;margin:15px 0 18px}
+input,select,textarea{font-family:inherit;font-size:18px;background:#f2e8d4;color:#251714;border:1px solid var(--gold2);border-radius:4px;padding:10px}
+.searchbar input{flex:1;min-width:200px}
+.searchbar select{min-width:170px}
+.directory{width:100%;border-collapse:collapse;background:var(--panel);font-size:17px;min-width:760px}
+.directory th,.directory td{border:1px solid #644832;padding:10px 12px;text-align:left;vertical-align:top}
+.directory th{font-family:"Cinzel",serif;color:var(--gold);background:#160e0d;font-size:13px}
+.directory tr:hover td{background:#382320}
+.small{font-size:15px;color:var(--muted)}
+.status{font-size:13px;color:#e7c879}
+.floor-plan{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px}
+.floor{border:1px dashed #9c7945;border-radius:6px;padding:15px;text-align:center;background:#211514}
+.floor strong{display:block;color:var(--gold);font-family:"Cinzel",serif;font-size:15px}
+.floor span{font-size:15px;color:var(--muted)}
+form{max-width:800px;margin:20px auto;background:var(--panel);border:1px solid #795532;border-radius:7px;padding:22px}
+form label{display:block;margin:12px 0 5px;color:var(--gold)}
+form input,form select,form textarea{width:100%}
+form textarea{min-height:90px;resize:vertical}
+footer{text-align:center;padding:25px;margin-top:30px;background:#100a09;border-top:1px solid var(--gold2);color:var(--muted)}
+footer p{margin:5px}
+.mobile-head{display:none}
+.empty{display:none;text-align:center;color:var(--muted);padding:20px}
+@media(max-width:1000px){.grid{grid-template-columns:1fr}}\n@media(max-width:800px){
+ .sidebar{position:relative;width:100%;height:auto;border-right:0;border-bottom:2px solid var(--gold2);padding:16px}
+ .crest{width:65px;height:65px;font-size:30px}
+ .tagline{margin-bottom:12px}
+ .nav{display:flex;flex-wrap:wrap;justify-content:center;gap:3px}
+ .nav a{padding:7px;font-size:11px}
+ .sidebar .btn{max-width:220px}
+ main{margin:0;padding:24px 18px}
+ .hero{min-height:300px;padding:28px 15px}
+ .directory{font-size:15px}
+ .directory th,.directory td{padding:8px}
+}
+@media(max-width:520px){.directory{display:block;overflow-x:auto;white-space:nowrap}.hero p{font-size:19px}.section{padding:38px 0}.section-title{font-size:23px}.intro{font-size:18px}}
+  </style>
+ </head>
+ <body>
+  <nav class="sidebar">
+   <div class="crest">
+    ✦
+   </div>
+   <div class="brand">
+    THE MARAUDER'S MAP
+   </div>
+   <p class="tagline">
+    A guide to your little corner of CHRIST
+   </p>
+   <ul class="nav">
+    <li>
+     <a href="index.html">
+      Home
+     </a>
+    </li>
+    <li>
+     <a href="facilities.html">
+      Campus Facilities
+     </a>
+    </li>
+    <li>
+     <a href="find-a-place.html">
+      Find a Place
+     </a>
+    </li>
+    <li>
+     <a href="block-floor-guide.html">
+      Block &amp; Floor Guide
+     </a>
+    </li>
+    <li>
+     <a href="clubs-centres.html">
+      Clubs &amp; Centres
+     </a>
+    </li>
+    <li>
+     <a href="academic-spaces.html">
+      Academic Spaces
+     </a>
+    </li>
+    <li>
+     <a href="student-essentials.html">
+      Student Essentials
+     </a>
+    </li>
+    <li>
+     <a href="food-dining.html">
+      Food &amp; Dining
+     </a>
+    </li>
+    <li>
+     <a href="campus-faqs.html">
+      Campus FAQs
+     </a>
+    </li>
+    <li>
+     <a href="add-an-update.html">
+      Add an Update
+     </a>
+    </li>
+    <li>
+     <a href="sources-disclaimer.html">
+      Sources &amp; Disclaimer
+     </a>
+    </li>
+   </ul>
+   <a class="btn" href="find-a-place.html" style="display:block;text-decoration:none;margin-top:17px">
+    Find your destination
+   </a>
+  </nav>
+  <main>
+   <section class="section" id="essentials">
+    <h2 class="section-title">
+     Student Essentials
+    </h2>
+    <div class="grid">
+     <article class="card">
+      <h3>
+       Examinations
+      </h3>
+      <p>
+       For exam schedules, hall tickets, results and examination queries, refer to official examination notices and the COE office.
+      </p>
+     </article>
+     <article class="card">
+      <h3>
+       Placements &amp; Internships
+      </h3>
+      <p>
+       Follow official placement announcements and the Centre for Placement and Career Guidance for eligibility, training and recruitment updates.
+      </p>
+     </article>
+     <article class="card">
+      <h3>
+       Transport Updates
+      </h3>
+      <p>
+       Confirm route, departure time, booking procedure and service availability before planning travel.
+      </p>
+     </article>
+     <article class="card">
+      <h3>
+       Health &amp; Safety
+      </h3>
+      <p>
+       For immediate campus assistance, contact campus security or the current official emergency contact. Do not rely on an old number.
+      </p>
+     </article>
+     <article class="card">
+      <h3>
+       Library Catalogue
+      </h3>
+      <p>
+       Search the Pune Lavasa library catalogue for books and other resources.
+      </p>
+      <a href="https://lavasalibrary.christuniversity.in/" rel="noopener" target="_blank">
+       Open Library Catalogue &nearrow;
+      </a>
+     </article>
+     <article class="card">
+      <h3>
+       University Website
+      </h3>
+      <p>
+       For official notices, programmes, admissions and campus information.
+      </p>
+      <a href="https://lavasa.christuniversity.in/" rel="noopener" target="_blank">
+       Open Pune Lavasa website &nearrow;
+      </a>
+     </article>
+    </div>
+   </section>
+   <footer>
+    <p style="font-family:Cinzel;color:var(--gold)">
+     THE MARAUDER'S MAP
+    </p>
+    <p>
+     For every student finding their way around CHRIST Pune Lavasa.
+    </p>
+    <p class="small">
+     An independent student guide &middot; 2026
+    </p>
+    <p>
+     <a href="index.html">
+      Back to Home &uarr;
+     </a>
+    </p>
+   </footer>
+   <div class="notice">
+    <strong>
+     Hungry between classes?
+    </strong>
+    Open the
+    <a href="food-dining.html">
+     Food &amp; Dining directory
+    </a>
+    to find caf&eacute;s and snack stops by campus block.
+   </div>
+  </main>
+ </body>
+</html>
